@@ -1,0 +1,72 @@
+frame {
+	border: 2 solid;
+	border-color: #68A0E7;
+}
+
+frame: hover {
+	border-color: red;
+}
+
+.frame {
+	background: #68A0E7;
+	font-family: Verdana;
+	font-size: 11px;
+}
+
+
+.tableFrame {
+	border: 1 solid;
+	border-color: #2A63B5;
+}
+
+.tableHeader {
+	color: #FFFFFF;
+	background: #2A63B5;
+	font-family: Verdana;
+	font-size: 11px;
+}
+
+.tableContent {
+	font-family: Verdana;
+	font-size: 11px;
+}
+
+.credit {	
+	position: absolute;
+	bottom: 10;
+	font-size: 80%;
+}
+.credit A:link { color: #B9E6F9; text-decoration: none;}
+.credit A:visited {color: #B9E6F9; text-decoration: none;}
+.credit A:active {color: #B9E6F9; text-decoration: none;}
+.credit A:hover {color: #2A63B5;text-decoration: underline;}
+
+input.button {
+	font-size:12;
+	font-face:Verdana;
+	background:#336699;
+	border:2 solid;
+	color:#FFFFFF;
+	width: 20;
+}
+
+.cheat {
+	font-size: 12;
+	font-face: Verdana;
+	color: #D2D2D2;
+}
+
+.window {
+	font-family: Verdana;
+	font-size: 11px;
+}
+
+input.letters {
+	font-size:10;
+	font-face:Verdana;
+	background:#FFFFFF;
+	border:1 solid;
+	border-color: #000000
+	color:#FFFFFF;
+	width: 20;
+}

@@ -1,0 +1,149 @@
+html { min-height: 100%; }
+
+body {
+	background: url(../images/background.jpg);
+	
+	
+	margin: 0px;
+	
+	font-size: 16px;
+	
+	
+	text-align: center;
+	min-height: 100%;
+	
+	font-size: 15px;
+	font-family: "Trebuchet MS", Verdana, Arial;
+	
+}
+
+#div_column {
+	background: url(../images/paper_bg.jpg);
+	position: relative;
+	
+	margin: auto;
+	
+	width: 500px;
+	min-height: 100%;
+	height: 1800px;
+}
+
+#div_column:before {
+	position: absolute;
+	background: url(../images/border.png);
+	
+	content: ".";
+		
+	margin: 0px;
+	margin-left: -89px;
+	
+	width: 89px;
+	height: 1800px;
+}
+
+
+#div_column:after {
+	position: absolute;
+	top: 0px;
+	
+	background: url(../images/border2.png);
+	
+	content: "";
+		
+	margin: 0px;
+	margin-right: -89px;
+	margin-left: 500px;
+	
+	width: 89px;
+	height: 1800px;
+	z-index: -1;
+}
+
+#div_top {
+	font-size: 20px;
+	font-family: "Trebuchet MS", Verdana, Arial;
+	
+	word-spacing: 30px;
+	
+	padding-bottom: 30px;
+}
+
+#div_company {
+	font-size: 15px;
+	font-family: "Trebuchet MS", Verdana, Arial;
+	
+	padding-bottom: 30px;
+}
+
+#div_tablet {
+	background: url(../images/tablet.png);
+	
+	position: relative;
+	left: -50px;
+	
+	padding-top: 80px;
+	padding-left: 90px;
+	padding-bottom: 30px;
+	padding-right: 240px;
+	text-align: left;
+	
+	font-family: Verdana, Arial;
+	font-size: 13px;
+	color: #009900;
+	
+	width: 275px; /* tablet width - padding-left - padding-right */
+	height: 352px; /* height - top */
+	
+	z-index: 2;
+}
+
+#div_footer {
+	align: center;
+	position: absolute;
+	bottom: 0px;
+	
+	width: 500px;
+	
+	font-family: "Trebuchet MS", Arial;
+	font-size: 13px;
+	font-weight: bold;
+	color: black;
+}
+
+#calendar_content {
+padding-top: 10px;
+}
+
+#calendar_content td{
+	font-size: 12px;
+	width: 14.28%;
+
+}
+
+#div_publishing {
+	background: url(../images/entete.png);
+	
+	position: relative;
+	left: -50px;
+	
+	padding-top: 0px;
+	padding-left: 0px;
+	padding-bottom: 0px;
+	padding-right: 0px;
+	text-align: left;
+	
+	width: 600px; /* tablet width - padding-left - padding-right */
+	height: 350px; /* height - top */
+	
+	z-index: 2;
+}
+
+a:link { text-decoration: none; color: #000;}
+a:active { text-decoration: none; color: #000;}
+a:visited { text-decoration: none; color: #000;}
+a:hover { text-decoration: underline; color: #000;}
+
+.cal_show {
+	background: #052b06;
+	border: 1px solid #041404;
+}

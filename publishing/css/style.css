@@ -1,0 +1,144 @@
+body {
+	font-family: Georgia, Calibri, Arial;
+	font-size: 12px;
+	margin: 0px 0px 0px 0px;
+}
+
+hr {
+	width: 640px;
+}
+
+#pub_chapter_select, #pub_story_select  {
+	font-family: Georgia, Calibri, Arial;
+	font-size: 18px;
+	font-weight: bold;
+	border: 0;
+}
+
+#pub_chapter_select_bot {
+	font-family: Georgia, Calibri, Arial;
+	font-size: 18px;
+	font-weight: bold;
+	border: 0;
+}
+
+#summary_text {
+	font-size: 13px;
+	color: #fff;
+	padding-top: 185px;
+	padding-left: 40px;
+	padding-right: 30px;
+	width: 535px;
+	height: 165px;
+}
+
+#pub_banner_tr {
+	
+}
+
+#pub_button {
+	/*position: absolute;
+	bottom: 0px;
+	height: 20px;
+	width: 174px;
+	text-align: center;
+	vertical-align: bottom;
+	padding-top: 50px;
+	background: url(../images/wavebutton.png);
+	font-size: 12px;*/
+	
+	position: absolute;
+	bottom: 0px;
+	width: 110px;
+	text-align: center;
+	vertical-align: bottom;
+	background: #A7B5BC;
+	font-size: 12px;
+	
+}
+
+#pub_banner {
+	position: relative;
+	width: 100%;
+	height: 125px;
+	text-align: center;
+	background: url(../images/header_bg.jpg);
+	font-size: 36px;
+	color: #FFFFFF;
+	padding-top: 75px;
+}
+
+#pub_banner a:link { text-decoration: none; color: #fff;}
+#pub_banner a:active { text-decoration: none; color: #fff;}
+#pub_banner a:visited { text-decoration: none; color: #fff;}
+#pub_banner a:hover { text-decoration: none; color: #fff;}
+
+#summary_text a:link { text-decoration: none; color: #fff;}
+#summary_text a:active { text-decoration: none; color: #fff;}
+#summary_text a:visited { text-decoration: none; color: #fff;}
+#summary_text a:hover { text-decoration: none; color: #fff;}
+
+#footer { padding-bottom: 10px; }
+
+a:link { text-decoration: underline; color: #000;}
+a:active { text-decoration: underline; color: #000;}
+a:visited { text-decoration: underline; color: #000;}
+a:hover { text-decoration: none; color: #000;}
+
+#pub_body {
+	padding-top: 10px;
+	text-align: center;
+}
+
+#pub_body_text {
+	text-align: left;
+	margin-left: 200px;
+	margin-right: 200px;
+	margin-top: 20px;
+	width: 650px;
+	z-index: 300;
+}
+
+#pub_body_text_ie {
+	text-align: left;
+	margin-left: 0px;
+	margin-right: 200px;
+	margin-top: 20px;
+	width: 650px;
+	z-index: 300;
+}
+
+#pub_right_panel {
+	position: absolute;
+	float: right;
+	right: 10px;
+	width: 250px;
+	text-align: center;
+	border: 0px solid #CCCCCC;
+	z-index: -1;
+}
+
+#chapter_input {
+	width: 510px;
+	height: 400px;
+}
+
+#comment_input {
+	width: 520px;
+	height: 200px;
+}
+
+#comment_date {
+	width: 5px;
+	font-size: 11px;
+}
+
+#comment_title{
+	font-size: 14px;
+	font-weight: bold;
+}
+
+#comment_body {
+	width: 595px;
+	font-size: 12px;
+}

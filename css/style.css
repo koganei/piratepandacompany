@@ -1,0 +1,138 @@
+/* CSS Document */
+
+body {
+	overflow-x: hidden;
+}
+
+img {
+	border: 0px;
+}
+
+#homepage_content {
+	position: relative;
+	top: -60px;
+}
+
+#div_quote  {
+	font-family: "Palatino Linotype", "Book Antiqua", "Trebuchet MS", Arial;
+	color: white;
+	text-align: right;
+	position: relative;
+	top: -700px;
+}
+
+#div_quote_ie {
+	font-family: "Palatino Linotype", "Book Antiqua", "Trebuchet MS", Arial;
+	color: white;
+	text-align: right;
+	position: relative;
+	float: right;
+	top: -700px;
+}
+
+#company_content {
+	font-family: Georgia, "Trebuchet MS", Arial;
+	font-size: 13px;
+	color: black;
+	position: relative;
+	top: -500px;
+}
+
+#company_content_ie{
+	font-family: Georgia, "Trebuchet MS", Arial;
+	font-size: 13px;
+	color: black;
+	position: absolute;
+	top: 1180px;
+}
+
+#footer_content {
+	font-family: Georgia, "Trebuchet MS", Arial;
+	font-size: 13px;
+	color: black;
+	position: relative;
+}
+
+#theater_content {
+	font-family: "Lucida Console", "Courier New", Verdana, Arial;
+	font-size: 16px;
+	color: #009900;
+}
+
+#theater_content_ff {
+	font-family: "Lucida Console", "Courier New", Verdana, Arial;
+	font-size: 12em;
+	color: #009900;
+}
+
+#pub_content {
+	font-family: "Palatino Linotype", "Book Antiqua", "Trebuchet MS", Arial;
+	font-size: 25px;
+	color: black;
+	position: relative;
+	top: -185px;
+}
+
+#pub_content_ie {
+	font-family: "Palatino Linotype", "Book Antiqua", "Trebuchet MS", Arial;
+	font-size: 25px;
+	color: black;
+	position: absolute;
+	top: 3730px;
+}
+
+a.tooltip{
+    position:relative; /*this is the key*/
+    z-index:24;
+    text-decoration:none}
+
+a.tooltip:hover{z-index:25;}
+
+a.tooltip span{display: none}
+
+a.tooltip:hover span{ /*the span will only display on :hover state*/
+    display:block;
+    position:absolute;
+    top:2em; left:2em; width:15em;
+	padding: 5px;
+    border:1px solid #090;
+    background-color:#000; color:#090;
+    text-align: center}
+	
+a.tooltip2{
+    position:relative; /*this is the key*/
+    z-index:24;
+    text-decoration:none}
+
+a.tooltip2:hover{z-index:25;}
+
+a.tooltip2 span{display: none}
+
+a.tooltip2:hover span{ /*the span will only display on :hover state*/
+    display:block;
+    position:absolute;
+    top:-0.4em; left:0em; width:25em;
+    border:1px solid #090;
+    background-color:#000; color:#090;
+    text-align: center;
+	padding: 10px;}
+
+a.top_cie:link{text-decoration: none; font-weight: bold; color: #FF9933}
+a.top_cie:visited {text-decoration: none; font-weight: bold; color: #FF9933}
+a.top_cie:active {text-decoration: none; font-weight: bold; color: #FF9933}
+a.top_cie:hover {text-decoration: underline; font-weight: bold}
+
+a.top_theater:link  {text-decoration: none; font-weight: bold; color: #009900}
+a.top_theater:visited {text-decoration: none; font-weight: bold; color: #009900}
+a.top_theater:active {text-decoration: none; font-weight: bold; color: #009900}
+a.top_theater:hover {text-decoration: underline; font-weight: bold}
+
+a.theater_text:link  {text-decoration: underline; color: #009900;}
+a.theater_text:visited {text-decoration: underline; color: #009900;}
+a.theater_text:active {text-decoration: underline; color: #009900;}
+a.theater_text:hover {text-decoration: underline;}
+
+a.top_pub:link  {text-decoration: none; font-weight: bold; color: #000000}
+a.top_pub:visited {text-decoration: none; font-weight: bold; color: #000000}
+a.top_pub:active {text-decoration: none; font-weight: bold; color: #000000}
+a.top_pub:hover {text-decoration: underline; font-weight: bold}

@@ -1,0 +1,267 @@
+<HTML>
+<HEAD>
+<TITLE>Marc Khoury - Hangman</TITLE>
+<link rel="stylesheet" href="hangman.css" type="text/css">
+
+
+<script id="ScriptFrame4">
+var start = false;
+var score = 0;
+var tries = 6;
+var wins = 0;
+var terminateTimerFlag = false;
+var highscore = 0;
+var hightime = 0;
+var games = 0;
+
+var currentWord = "-";
+var lastWord = "-";
+var lastWordID = -1;
+var indexWord = -1;
+
+var words = new Array("cutman", "iceman", "buster", "shield", "charge", "topman", "wombat", "albert", "edison", "burner", "zsword", "treble", "double", "sigma", "snakes", "magnet", "hornet", "boomer", "doctor", "knight", "dopple", "ganger");
+
+function startGame() {
+
+	if(start == false) {
+		games++;
+		parent.frame1.document.getElementById("games").innerHTML = games;
+		start = true;
+		tries = 6;
+		depushStart();
+		lastWord = currentWord;
+		lastWordID = indexWord;
+
+		while(indexWord == lastWordID) {
+			indexWord = Math.round(Math.random() * (words.length - 1), 0);
+		}
+		currentWord = words[indexWord];
+		window.status = indexWord;
+		//document.getElementById("cheat").innerHTML = currentWord;
+		parent.frame2.document.getElementById("lastword").innerHTML = lastWord;
+		parent.frame2.document.getElementById("tries").innerHTML = tries;
+		parent.frame2.document.images["triesImage"].src = "bomb" + (6 - tries) + ".gif";
+		StartClock();
+
+		parent.frame3.document.getElementById("letter1").value = "";
+		parent.frame3.document.getElementById("letter2").value = "";
+		parent.frame3.document.getElementById("letter3").value = "";
+		parent.frame3.document.getElementById("letter4").value = "";
+		parent.frame3.document.getElementById("letter5").value = "";
+		parent.frame3.document.getElementById("letter6").value = "";
+
+		var alphabet = new Array("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z");
+
+		for(var i = 0; i < alphabet.length; i++) {
+			document.getElementById(alphabet[i]).style.visibility = "visible";
+		}
+
+	} else {
+		start=false;
+		depushStart();
+		KillClock();
+
+	}
+
+
+}
+
+function pushStart() {
+
+	if(start == false) {
+		document.images["startButton"].src = 'start_push.gif';
+	} else {
+		document.images["startButton"].src = 'stop_push.gif';
+	}
+}
+
+function depushStart() {
+	if(start == false) {
+		document.images["startButton"].src = 'start.gif';
+	} else {
+		document.images["startButton"].src = 'stop.gif';
+	}
+}
+
+function pushLetter(letter) {
+	if(start == true) {
+		document.getElementById(letter.toLowerCase()).style.visibility = "hidden";
+		var gotLetter = false;
+		for(var i = 0; i < 6; i++) {
+			if(currentWord.charAt(i) == letter.toLowerCase()) {
+				parent.frame3.document.getElementById("letter" + (i+1)).value = letter;
+				gotLetter = true;
+				score += 100;
+				parent.frame2.document.getElementById("score").innerHTML = score;
+			}
+		}
+
+		if(gotLetter == false) {
+			tries -= 1;
+			score -= 25;
+			parent.frame2.document.getElementById("score").innerHTML = score;
+			parent.frame2.document.getElementById("tries").innerHTML = tries;
+			parent.frame2.document.images["triesImage"].src = "bomb" + (6 - tries) + ".gif";
+
+			if(tries == 0) { // LOOSING
+
+				windowLoose = window.open("loose.html","loose", "height=234,width=749, location = no, menubar = no, resizable = no, scrollbars = no, status = no, titlebar = no, toolbar = no");
+
+			}
+		}
+
+		var userWord = parent.frame3.document.getElementById("letter1").value + parent.frame3.document.getElementById("letter2").value + parent.frame3.document.getElementById("letter3").value + parent.frame3.document.getElementById("letter4").value + parent.frame3.document.getElementById("letter5").value + parent.frame3.document.getElementById("letter6").value;
+
+		if(userWord.toLowerCase() == currentWord) { // WINNING
+
+			wins += 1;
+			parent.frame1.document.getElementById("wins").innerHTML = wins;
+
+			windowWin = window.open("win.html","win", "height=234,width=749, location = no, menubar = no, resizable = no, scrollbars = no, status = no, titlebar = no, toolbar = no");
+
+			startGame();
+		}
+	}
+}
+
+function openedWindowLoose(windowLoose) {
+	windowLoose.document.getElementById("word").innerHTML = currentWord;
+	startGame();
+}
+
+
+function openedWindowWin(windowWin) {
+
+	windowWin.document.getElementById("time").innerHTML = ""
+						   + ((mins.toString().length == 1)?"0" + mins:mins) + ":"
+						   + ((secs.toString().length == 1)?"0" + secs:secs) + ":"
+						   + ((mili.toString().length == 1)?"0" + mili:mili);
+
+	if(highscore < score) {
+		parent.frame2.document.getElementById("highscore").innerHTML = score;
+		highscore = score;
+
+		windowWin.document.getElementById("highscore").innerHTML = "You obtained the High Score! <b>" + score + "</b> points!";
+	}
+	if(hightime > (mins * 100 + secs + mili / 100) || hightime == 0) {
+				parent.frame2.document.getElementById("hightime").innerHTML = ""
+						   + ((mins.toString().length == 1)?"0" + mins:mins) + ":"
+						   + ((secs.toString().length == 1)?"0" + secs:secs) + ":"
+						   + ((mili.toString().length == 1)?"0" + mili:mili);
+
+		hightime = (mins * 100 + secs + mili / 100);
+
+		windowWin.document.getElementById("hightime").innerHTML = "You obtained the High Time!";
+	}
+}
+
+function resetHighTime() {
+	hightime = 0;
+	parent.frame2.document.getElementById("hightime").innerHTML = "-";
+}
+
+function resetScore() {
+	score = 0;
+	parent.frame2.document.getElementById("score").innerHTML = "0";
+
+}
+
+function resetHighScore() {
+	highscore = 0;
+	parent.frame2.document.getElementById("highscore").innerHTML = "-";
+
+}
+
+
+
+
+var clockID = 0;
+
+function UpdateClock() {
+   if(clockID) {
+      clearTimeout(clockID);
+      clockID  = 0;
+   }
+
+		mili++;
+
+		if(mili == 60) {
+			mili = 0;
+			secs += 1;
+		}
+
+		if(secs == 61) {
+			secs = 0;
+			mins += 1;
+		}
+
+		if(mins > 99) {
+			mins = 99;
+		}
+
+   parent.frame2.document.getElementById("timer").innerHTML = ""
+                                   + ((mins.toString().length == 1)?"0" + mins:mins) + ":"
+                                   + ((secs.toString().length == 1)?"0" + secs:secs) + ":"
+                                   + ((mili.toString().length == 1)?"0" + mili:mili);
+
+   clockID = setTimeout("UpdateClock()", 10);
+}
+
+function StartClock() {
+	mili = 0;
+	secs = 0;
+	mins = 0;
+
+	clockID = setTimeout("UpdateClock()", 500);
+}
+
+function KillClock() {
+   if(clockID) {
+      clearTimeout(clockID);
+      clockID  = 0;
+   }
+}
+
+</script>
+</HEAD>
+
+<body class="main">
+<div align="center">
+<img src="banner.gif"><br>
+<br>
+<div style="background: url(background.jpg); height: 396px; background-repeat: no-repeat;">
+<br><br>
+<input class="button" type="button" onMouseOver="this.style.color = '#FDC223'" onMouseOut="this.style.color='#FFFFFF'" onClick="pushLetter(this.value)" id="a" value="A">
+<input class="button" type="button" onMouseOver="this.style.color = '#FDC223'" onMouseOut="this.style.color='#FFFFFF'" onClick="pushLetter(this.value)" id="b" value="B">
+<input class="button" type="button" onMouseOver="this.style.color = '#FDC223'" onMouseOut="this.style.color='#FFFFFF'" onClick="pushLetter(this.value)" id="c" value="C">
+<input class="button" type="button" onMouseOver="this.style.color = '#FDC223'" onMouseOut="this.style.color='#FFFFFF'" onClick="pushLetter(this.value)" id="d" value="D">
+<input class="button" type="button" onMouseOver="this.style.color = '#FDC223'" onMouseOut="this.style.color='#FFFFFF'" onClick="pushLetter(this.value)" id="e" value="E">
+<input class="button" type="button" onMouseOver="this.style.color = '#FDC223'" onMouseOut="this.style.color='#FFFFFF'" onClick="pushLetter(this.value)" id="f" value="F">
+<input class="button" type="button" onMouseOver="this.style.color = '#FDC223'" onMouseOut="this.style.color='#FFFFFF'" onClick="pushLetter(this.value)" id="g" value="G">
+<input class="button" type="button" onMouseOver="this.style.color = '#FDC223'" onMouseOut="this.style.color='#FFFFFF'" onClick="pushLetter(this.value)" id="h" value="H">
+<input class="button" type="button" onMouseOver="this.style.color = '#FDC223'" onMouseOut="this.style.color='#FFFFFF'" onClick="pushLetter(this.value)" id="i" value="I">
+<input class="button" type="button" onMouseOver="this.style.color = '#FDC223'" onMouseOut="this.style.color='#FFFFFF'" onClick="pushLetter(this.value)" id="j" value="J">
+<input class="button" type="button" onMouseOver="this.style.color = '#FDC223'" onMouseOut="this.style.color='#FFFFFF'" onClick="pushLetter(this.value)" id="k" value="K">
+<input class="button" type="button" onMouseOver="this.style.color = '#FDC223'" onMouseOut="this.style.color='#FFFFFF'" onClick="pushLetter(this.value)" id="l" value="L">
+<input class="button" type="button" onMouseOver="this.style.color = '#FDC223'" onMouseOut="this.style.color='#FFFFFF'" onClick="pushLetter(this.value)" id="m" value="M">
+<br>
+<input class="button" type="button" onMouseOver="this.style.color = '#FDC223'" onMouseOut="this.style.color='#FFFFFF'" onClick="pushLetter(this.value)" id="n" value="N">
+<input class="button" type="button" onMouseOver="this.style.color = '#FDC223'" onMouseOut="this.style.color='#FFFFFF'" onClick="pushLetter(this.value)" id="o" value="O">
+<input class="button" type="button" onMouseOver="this.style.color = '#FDC223'" onMouseOut="this.style.color='#FFFFFF'" onClick="pushLetter(this.value)" id="p" value="P">
+<input class="button" type="button" onMouseOver="this.style.color = '#FDC223'" onMouseOut="this.style.color='#FFFFFF'" onClick="pushLetter(this.value)" id="q" value="Q">
+<input class="button" type="button" onMouseOver="this.style.color = '#FDC223'" onMouseOut="this.style.color='#FFFFFF'" onClick="pushLetter(this.value)" id="r" value="R">
+<input class="button" type="button" onMouseOver="this.style.color = '#FDC223'" onMouseOut="this.style.color='#FFFFFF'" onClick="pushLetter(this.value)" id="s" value="S">
+<input class="button" type="button" onMouseOver="this.style.color = '#FDC223'" onMouseOut="this.style.color='#FFFFFF'" onClick="pushLetter(this.value)" id="t" value="T">
+<input class="button" type="button" onMouseOver="this.style.color = '#FDC223'" onMouseOut="this.style.color='#FFFFFF'" onClick="pushLetter(this.value)" id="u" value="U">
+<input class="button" type="button" onMouseOver="this.style.color = '#FDC223'" onMouseOut="this.style.color='#FFFFFF'" onClick="pushLetter(this.value)" id="v" value="V">
+<input class="button" type="button" onMouseOver="this.style.color = '#FDC223'" onMouseOut="this.style.color='#FFFFFF'" onClick="pushLetter(this.value)" id="w" value="W">
+<input class="button" type="button" onMouseOver="this.style.color = '#FDC223'" onMouseOut="this.style.color='#FFFFFF'" onClick="pushLetter(this.value)" id="x" value="X">
+<input class="button" type="button" onMouseOver="this.style.color = '#FDC223'" onMouseOut="this.style.color='#FFFFFF'" onClick="pushLetter(this.value)" id="y" value="Y">
+<input class="button" type="button" onMouseOver="this.style.color = '#FDC223'" onMouseOut="this.style.color='#FFFFFF'" onClick="pushLetter(this.value)" id="z" value="Z">
+<br><br>
+<img name="startButton" src="start.gif" onMouseDown="pushStart();" onMouseOut="depushStart();" onMouseUp="depushStart(); startGame();"><br>
+<br>
+<div id="cheat" class="cheat"></div>
+</div>
+</div>
+</body>

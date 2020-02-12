@@ -1,0 +1,196 @@
+/* CSS Document */
+a img { border: 0px; }
+
+#div_tablet_content {
+	font-family: "Lucida Console", "Courier New", Verdana, Arial;
+	font-size: 16px;
+	color: #009900;
+}
+
+#div_paper_png  {
+	font-family: Georgia, "Trebuchet MS", Verdana;
+	font-size: 15px;
+}
+
+#table_crew {
+	width: 100%;
+}
+
+#table_crew  td{
+	width: 50%;
+	text-align: center;
+	vertical-align: top;
+	padding-bottom: 30px;
+	padding-left: 7px;
+	padding-right: 7px;
+}
+
+#theatermain_content h3 {
+	font-weight: bold;
+	font-size: 1.1em;
+	margin-bottom: 0; 
+	padding-bottom: 0; 
+}
+
+table#calendar_content {
+	font-family: "Trebuchet MS", Verdana, Arial;
+	font-size: 12px;
+	color: #000000;
+	border: 0px solid #454545;
+}
+
+table#calendar_content td {
+	font-family: "Trebuchet MS", Verdana, Arial;
+	font-size: 12px;
+	color: #000000;
+	width: 14.28%;
+}
+
+
+#table_news {
+	width: 100%;
+	padding-bottom: 30px;
+}
+#news_location {
+	width: 25%;
+	border: 1px solid #692A22;
+	text-align: center;
+}
+
+#news_content {
+	padding: 20px;
+}
+
+#entry_input {
+	width: 520px;
+	height: 200px;
+}
+
+
+#div_tablet_content a:link { font-family: "Lucida Console", "Courier New", Verdana, Arial; font-size: 16px; color: #009900;text-decoration: none; }
+#div_tablet_content a:visited { font-family: "Lucida Console", "Courier New", Verdana, Arial; font-size: 16px; color: #009900;text-decoration: none; }
+#div_tablet_content a:active { font-family: "Lucida Console", "Courier New", Verdana, Arial; font-size: 16px; color: #009900;text-decoration: none; }
+#div_tablet_content a:hover{ font-family: "Lucida Console", "Courier New", Verdana, Arial; font-size: 16px; color: #009900; text-decoration: none; }
+
+
+td a:link {text-decoration: underline; color: #000000;}
+td a:visited {text-decoration: underline; color: #000000;}
+td a:active {text-decoration: underline; color: #000000;}
+td a:hover {text-decoration: none; color: #000000;}
+
+a.tooltip{
+    position:relative; /*this is the key*/
+    z-index:24;
+    text-decoration:none}
+
+a.tooltip:hover{z-index:25;}
+
+a.tooltip span{display: none}
+
+a.tooltip:hover span{ /*the span will only display on :hover state*/
+    display:block;
+    position:absolute;
+    top:2em; left:2em; width:175px;
+    border:1px solid #090;
+    background-color:#000; color:#090;
+    text-align: center}
+
+/* TRIANGLE STUFF */
+
+.triangle-right {
+	position:relative;
+	padding:15px;
+	margin:1em 0 3em;
+	color:#fff;
+	background:#bf7d1f; /* default background for browsers without gradient support */
+	/* css3 */
+	background:-webkit-gradient(linear, 0 0, 0 100%, from(#3f2e1f), to(#301c1a));
+	background:-moz-linear-gradient(#3f2e1f, #301c1a);
+	background:-o-linear-gradient(#3f2e1f, #301c1a);
+	background:linear-gradient(#3f2e1f, #301c1a);
+	-webkit-border-radius:10px;
+	-moz-border-radius:10px;
+	border-radius:10px;
+	
+	font-family: "Trebuchet MS", Verdana, Arial;
+	font-size: 11px;
+}
+
+/* Variant : for top positioned triangle
+------------------------------------------ */
+
+.triangle-right.top {
+	background:-webkit-gradient(linear, 0 0, 0 100%, from(#915a0d), to(#ddb172));
+	background:-moz-linear-gradient(#915a0d, #ddb172);
+	background:-o-linear-gradient(#915a0d, #ddb172);
+	background:linear-gradient(#915a0d, #ddb172);
+}
+
+/* Variant : for left positioned triangle
+------------------------------------------ */
+
+.triangle-right.left {
+	margin-left:40px;
+	background:#b78224;
+}
+
+/* Variant : for right positioned triangle
+------------------------------------------ */
+
+.triangle-right.right {
+	margin-right:40px;
+	background:#b78224;
+}
+
+/* THE TRIANGLE
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.triangle-right:after {
+	content:"";
+	position:absolute;
+	bottom:-20px; /* value = - border-top-width - border-bottom-width */
+	left:50px; /* controls horizontal position */
+	border-width:20px 0 0 20px; /* vary these values to change the angle of the vertex */
+	border-style:solid;
+	border-color:#301c1a transparent; 
+    /* reduce the damage in FF3.0 */
+    display:block; 
+    width:0;
+}
+
+/* Variant : top
+------------------------------------------ */
+
+.triangle-right.top:after {
+	top:-20px; /* value = - border-top-width - border-bottom-width */
+	left:50px; /* controls horizontal position */
+	bottom:auto;
+	left:auto;
+	border-width:20px 20px 0 0; /* vary these values to change the angle of the vertex */
+	border-color:transparent #915a0d; 
+}
+
+/* Variant : left
+------------------------------------------ */
+
+.triangle-right.left:after {
+	top:16px; 
+	left:-40px; /* value = - border-left-width - border-right-width */
+	bottom:auto;
+	border-width:15px 40px 0 0; /* vary these values to change the angle of the vertex */
+	border-color:transparent #bf7d1f; 
+}
+
+/* Variant : right
+------------------------------------------ */
+
+.triangle-right.right:after {
+	top:16px; 
+	right:-40px; /* value = - border-left-width - border-right-width */
+	bottom:auto;
+    left:auto;
+	border-width:15px 0 0 40px; /* vary these values to change the angle of the vertex */
+	border-color:transparent #bf7d1f; 
+}
+
+/* END OF TRIANGLE STUFF */
